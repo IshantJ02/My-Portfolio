@@ -1,19 +1,33 @@
 import { motion } from "framer-motion";
+import { useRef } from "react";
 
 export default function CatMascot() {
+  const purrRef = useRef(null);
+
+  const playPurr = () => {
+    if (!purrRef.current) {
+      purrRef.current = new Audio("/sounds/purr.mp3");
+      purrRef.current.volume = 0.25;
+    }
+
+    purrRef.current.currentTime = 0;
+    purrRef.current.play();
+  };
+
   return (
     <motion.div
       className="
         relative
-        text-6xl
-        select-none
+        w-24 h-24
+        sm:w-28 sm:h-28
         cursor-pointer
+        select-none
       "
 
-      /* Idle float + sway */
+      /* Idle float */
       animate={{
-        y: [0, -12, 0],
-        rotate: [0, 4, -4, 0],
+        y: [0, -10, 0],
+        rotate: [0, 3, -3, 0],
       }}
       transition={{
         repeat: Infinity,
@@ -21,15 +35,10 @@ export default function CatMascot() {
         ease: "easeInOut",
       }}
 
-      /* Hover reaction */
-      whileHover={{
-        scale: 1.2,
-        rotate: 8,
-      }}
+      /* Hover */
+      whileHover={{ scale: 1.1 }}
 
-      whileTap={{
-        scale: 0.9,
-      }}
+      onMouseEnter={playPurr}
     >
 
       {/* Glow aura */}
@@ -43,25 +52,17 @@ export default function CatMascot() {
         "
       />
 
-      {/* Cat emoji */}
-      <span className="relative z-10">🐱</span>
-
-      {/* Floating paw sparkles */}
-      <motion.span
-        className="absolute -top-4 -right-4 text-xl"
-        animate={{ opacity: [0, 1, 0], y: [0, -10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-      >
-        🐾
-      </motion.span>
-
-      <motion.span
-        className="absolute -bottom-3 -left-3 text-lg"
-        animate={{ opacity: [0, 1, 0], y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2, delay: 1 }}
-      >
-        ✨
-      </motion.span>
+      {/* Cat image */}
+      <img
+        src="/mascot/cat.png"
+        alt="Cat Mascot"
+        className="
+          relative z-10
+          w-full h-full
+          object-contain
+          drop-shadow-[0_10px_25px_rgba(0,0,0,0.4)]
+        "
+      />
 
     </motion.div>
   );
