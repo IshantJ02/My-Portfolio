@@ -22,9 +22,15 @@ export default function Hero({ onContactClick }) {
             Hi, I’m Ishant 😼
           </motion.h2>
         ) : (
-          <h2 className="text-4xl font-bold leading-tight">
-            Hi, I’m Ishant 👋
-          </h2>
+          <h2
+  className={`
+    text-4xl font-semibold
+    ${funMode ? "font-fun" : "font-heading"}
+  `}
+>
+  Hi, I’m Ishant 😼
+</h2>
+
         )}
 
         {/* Subtitle */}

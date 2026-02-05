@@ -2,15 +2,21 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,jsx}"
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       colors: {
-        dark: "#0f172a",
-        accent: "#f97316",
+        dark: "#0a0a14",
+        accent: "#f97316", // if you’re using accent
+      },
+
+      fontFamily: {
+        heading: ["Poppins", "sans-serif"],
+        body: ["Inter", "sans-serif"],
+        fun: ["Fredoka", "cursive"],
       },
     },
   },
   plugins: [],
-}
+};
