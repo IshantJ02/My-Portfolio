@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ModeContext } from "../context/ModeContext";
 import { motion } from "framer-motion";
-import CatMascot from "./catMascot";
+import CatMascot from "./CatMascot";
 
 export default function Hero({ onContactClick }) {
   const { funMode } = useContext(ModeContext);
