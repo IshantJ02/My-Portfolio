@@ -30,7 +30,7 @@ export default function Toggle() {
         ${funMode ? "shadow-[0_0_20px_rgba(255,200,0,0.4)]" : ""}
       `}
     >
-      {funMode ? "🐱" : "💼"}
+      {funMode ? "💼" : "🐱"}
 
       {/* Mobile label */}
       <span className="sm:hidden">
@@ -39,7 +39,7 @@ export default function Toggle() {
 
       {/* Desktop label */}
       <span className="hidden sm:inline">
-        {funMode ? "Fun Mode" : "Professional Mode"}
+        {funMode ? "Professional Mode" : "Fun Mode"}
       </span>
     </button>
   );
