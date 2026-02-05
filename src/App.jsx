@@ -13,6 +13,7 @@ import PawTrail from "./components/PawTrail";
 import SectionDivider from "./components/SectionDivider";
 import useFunSounds from "./hooks/useFunSounds";
 import FunBackground from "./components/FunBackground";
+import ScrollProgress from "./components/ScrollProgress";
 
 export default function App() {
   const { funMode } = useContext(ModeContext);
@@ -22,15 +23,14 @@ export default function App() {
 
   return (
     <>
-      {/* Fun chaos layers */}
       {funMode && <FunBackground />}
       {funMode && <PawCursor />}
       {funMode && <PawTrail />}
 
-      {/* 👇 WRAP CONTENT PROPERLY */}
+      {/* 🔥 WRAP EVERYTHING */}
       <div className={funMode ? "fun-wrapper" : ""}>
-        <Navbar onHireClick={() => setOpenContact(true)} />
 
+        <Navbar onHireClick={() => setOpenContact(true)} />
         <Hero onContactClick={() => setOpenContact(true)} />
 
         <SectionDivider label="About" />
@@ -43,9 +43,9 @@ export default function App() {
         <Projects />
 
         <Footer />
+
       </div>
 
-      {/* Modal stays outside wrapper */}
       <ContactModal
         open={openContact}
         onClose={() => setOpenContact(false)}

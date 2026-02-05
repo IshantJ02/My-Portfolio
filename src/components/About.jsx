@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ModeContext } from "../context/ModeContext";
 import { motion } from "framer-motion";
-
+import Reveal from "./Reveal";
 export default function About() {
   const { funMode } = useContext(ModeContext);
 
